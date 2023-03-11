@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import Home from './views/Home';
+import Navbar from './Componentes/Navbar';
+import Profile from './views/Profile';
 import './App.css';
+import { BrowserRouter , Routes, Route } from 'react-router-dom';
+import injectContext  from './store/context';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ 
+
+
+ return <>
+ 
+  
+    <BrowserRouter>
+     <Navbar/>
+      <Routes>
+        <Route  path='/profile/:id' element={< Profile/>} /> 
+        <Route path='/' element={ < Home /> } />
+      </Routes>
+
+    </BrowserRouter>
+   
+   
+
+  
+  
+  </>
+ 
 }
 
-export default App;
+export default injectContext(App)
